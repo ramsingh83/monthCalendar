@@ -1,0 +1,95 @@
+// General form styling.
+
+form {
+  .select-field-component,
+  input[type=text],
+  input[type=email],
+  input[type=password],
+  input[type=file],
+  input[type=date],
+  textarea {
+    border: pem(2px) solid $grey-lighter;
+    line-height: normal;
+    padding: pem(8px);
+    width: pem(270px);
+  }
+
+  .form-piece {
+    margin: 0 0 pem(12px);
+
+    label {
+      display: inline-block;
+      font-weight: normal;
+      line-height: 1.2;
+      margin-bottom: pem(5px);
+      margin-right: 1.3em;
+      text-align: right;
+    }
+
+    .error-message {
+      color: $red-light;
+      padding-left: pem(175px);
+    }
+  }
+
+  .label-optional {
+    display: inline-block;
+    font-size: $small-font-size;
+    font-style: italic;
+    margin-left: pem(12px);
+  }
+
+  .required::before {
+    color: $red-light;
+    content: '*';
+    display: inline-block;
+    padding-right: pem(5px);
+  }
+
+  .help-text {
+    font-style: italic;
+  }
+
+  .select-field-component {
+    display: inline-block;
+
+    .select-box {
+      position: relative;
+    }
+
+    .dropdown-selection {
+      border: 1px solid $grey-light;
+      background-color: $white;
+      left: pem(-10px);
+      list-style-type: none;
+      margin-top: pem(10px);
+      overflow-x: hidden;
+      overflow-y: auto;
+      padding: 0;
+      position: absolute;
+      top: pem(17px);
+      width: pem(270px);
+    }
+
+    .dropdown-selection-height {
+      height: pem(197px);
+    }
+
+    .select-option {
+      background-color: $white;
+      border-top: 1px solid $grey-light;
+      padding: pem(10px);
+      z-index: 5;
+
+      &.selected {
+        background-color: $red-light;
+        color: $white;
+        cursor: pointer;
+      }
+    }
+
+    .dropdown-button {
+      display: block;
+    }
+  }
+}

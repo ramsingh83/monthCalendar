@@ -1,0 +1,23 @@
+%link-white-hover-white {
+  color: $white;
+
+  &:hover,
+  &:focus {
+    color: $white;
+  }
+}
+
+%link-no-underline {
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+}
+
+%link-red {
+  color: $red-light;
+
+  @extend %link-no-underline;
+}

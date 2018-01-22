@@ -1,0 +1,66 @@
+.calendar-widget {
+  padding: pem(2px);
+  margin: pem(12px);
+  box-sizing: border-box;
+  background-color: $grey-lightest;
+
+  .month {
+    ul {
+      list-style-type: none;
+      li {
+        margin: pem(-22px);
+        font-size: pem(24px);
+        padding-top: pem(12px);
+        padding-bottom: pem(12px);
+        text-align: center;
+      }
+    }
+  }
+
+  .weekdays {
+    padding-left: 0;
+
+    li {
+      display: inline-block;
+      width: 13%;
+      text-transform: uppercase;
+      text-align: center;
+      span {
+        font-size: pem(12px);
+      }
+    }
+  }
+
+  .days {
+    padding: pem(10px) 0;
+    background: $white;
+    margin: 0;
+    li {
+      list-style-type: none;
+      display: inline-block;
+      width: 13%;
+      height: 2.5em;
+      text-align: center;
+      vertical-align: top;
+      margin-bottom: pem(5px);
+      font-size: pem(18px);
+      color: $black;
+      .price {
+        font-size: pem(13px);
+      }
+      .active {
+        cursor: pointer;
+        display: block;
+        background: $red-lightest;
+      }
+      .selected {
+        background: $red-light;
+        color: $white;
+      }
+    }
+  }
+}
+
+.calendar-error-message {
+  color: $red-light;
+}

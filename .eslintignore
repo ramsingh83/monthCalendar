@@ -1,0 +1,12 @@
+# /node_modules/* and /bower_components/* ignored by default
+
+tests.webpack.js
+coverage/*
+build/*
+docs/*
+static/*
+**/*.spec.js
+**/*.e2e.js
+src/webpack.spec.js
+src/assets/*
+src/angular-services/*

@@ -1,0 +1,26 @@
+<div class="calendar-widget" data-ng-if="!vm.noDates">
+  <div class="month">
+    <ul>
+      <li>{{ vm.monthName }}</li>
+    </ul>
+  </div>
+  <ul class="weekdays">
+    <li data-ng-repeat="wkd in vm.weekday"><span>{{ wkd }}</span></li>
+  </ul>
+  <ul class="days">
+    <li data-ng-repeat="num in vm.getEmptyDayBlockNumber() track by $index"><span></span></li>
+    <li data-ng-repeat="day in vm.numberOfDays track by $index">
+      <span data-ng-class="[{ 'active': vm.isDateActive(day), 'selected': vm.calendarService.calendarModel.day === day && vm.calendarService.calendarModel.month === vm.monthName }]"
+        data-ng-click="vm.selectDate(day)">
+        <span>{{ day }}</span><br>
+        <span data-ng-if="vm.isDateActive(day)">
+          <span class="price" ng-bind-html="vm.configService.messages.calendar.currency"></span>
+          <span class="price">{{ vm.getSurcharge(day) }}</span>
+        </span>
+      </span>
+    </li>
+  </ul>
+</div>
+<p data-ng-if="vm.calendarService.calendarModel.surcharge">Surcharge for selected date: {{ vm.calendarService.calendarModel.surcharge }}</p><br>
+<p data-ng-if="vm.calendarService.calendarModel.day">Selected date: {{ vm.calendarService.getselectedDate() }}</p>
+<p data-ng-if="vm.noDates" class="calendar-error-message">Can't display calendar. Please check given input.</p>

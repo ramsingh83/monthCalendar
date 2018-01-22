@@ -1,0 +1,77 @@
+// Utilities.
+
+// Cols
+@mixin cols($cols) {
+  float: left;
+  width: calc(100% / #{$cols} - #{$col-margin});
+  overflow: hidden;
+}
+
+// Clearfix
+@mixin clearfix {
+  &::after {
+    clear: both;
+    content: ' ';
+    display: table;
+  }
+}
+
+%element-invisible {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+%clearfix {
+  @include clearfix;
+}
+
+%icon-inline {
+  display: inline-block;
+  content: ' ';
+}
+
+%icon-block {
+  display: block;
+  content: ' ';
+}
+
+%icon-off {
+  background: none;
+  height: auto;
+  width: auto;
+}
+
+// PX to EM converter
+@function pem($pixels, $context: $base-font-size) {
+  @return #{$pixels/$context}em;
+}
+
+// Mediaqueries.
+@mixin mobile {
+  @media #{$mobile-mq} {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media #{$tablet-mq} {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media #{$desktop-mq} {
+    @content;
+  }
+}
+
+@mixin button-full-width {
+  min-width: 292px;
+  width: 100%;
+}

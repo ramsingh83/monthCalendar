@@ -1,0 +1,21 @@
+// Grid System.
+
+$maxcolumns: 12;
+
+.row {
+  @include clearfix;
+  box-sizing: border-box;
+}
+
+// this produces colums classes from .cols1 to .cols12.
+@for $i from 1 through $maxcolumns {
+  .cols#{$i} {
+    @include cols(#{$i});
+    box-sizing: border-box;
+    margin-left: 1.5%;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}

@@ -14,13 +14,13 @@
         data-ng-click="vm.selectDate(day)">
         <span>{{ day }}</span><br>
         <span data-ng-if="vm.isDateActive(day)">
-          <span class="price" ng-bind-html="vm.configService.messages.calendar.currency"></span>
-          <span class="price">{{ vm.getSurcharge(day) }}</span>
+          <span id="currency" class="price">&pound;</span>
+          <span id="amount" class="price">{{ vm.getSurcharge(day) }}</span>
         </span>
       </span>
     </li>
   </ul>
 </div>
-<p data-ng-if="vm.calendarService.calendarModel.surcharge">Surcharge for selected date: {{ vm.calendarService.calendarModel.surcharge }}</p><br>
+<p data-ng-if="vm.calendarService.calendarModel.surcharge">Surcharge for selected date: &pound;{{ vm.calendarService.calendarModel.surcharge }}</p><br>
 <p data-ng-if="vm.calendarService.calendarModel.day">Selected date: {{ vm.calendarService.getselectedDate() }}</p>
 <p data-ng-if="vm.noDates" class="calendar-error-message">Can't display calendar. Please check given input.</p>

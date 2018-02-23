@@ -8,6 +8,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const WebpackLighthousePlugin = require('webpack-lighthouse-plugin');
 
 // Common paths.
 const PATHS = {
@@ -68,11 +69,11 @@ module.exports = (function makeWebpackConfig() {
     // Output path from the view of the page
     // Uses webpack-dev-server in development
     publicPath: (isProd || isDeploy) ? '' : 'http://localhost:3000/',
-    
+
     // Filename for entry points
     // Only adds hash in dev mode
     filename: isDev ? '[name].[hash].js' : '[name].bundle.js',
-    
+
     // Filename for non-entry points
     // Only adds hash in dev mode
     chunkFilename: isDev ? '[name].[hash].js' : '[name].bundle.js'
@@ -202,7 +203,9 @@ module.exports = (function makeWebpackConfig() {
         files: '**/*.s?(a|c)ss',
         quiet: false,
         failOnError: false
-      })
+      }),
+      // Instrument app with LightHouse for audit.
+      new WebpackLighthousePlugin({url: 'http://localhost:3000/webpack-dev-server/'})
     );
 
   }
@@ -265,6 +268,15 @@ module.exports = (function makeWebpackConfig() {
           'fonts/**/*'
         ],
         copyUnmodified: false
+      }),
+      // LightHouse
+      new WebpackLighthousePlugin({
+        url: 'http://localhost:3000/',
+        saveAssets: true,
+        port: 0,
+        disableDeviceEmulation: true,
+        disableCPUThrottling: true,
+        disableNetworkThrottling: true // Only if you're going to use real 3G
       })
     );
 

@@ -7,7 +7,7 @@
   "main": "src/main.module.js",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/ramsingh83/monthCalendar.git"
   },
   "scripts": {
     "lint": "eslint ./src --ignore-pattern shared*.js *spec.js --cache",
@@ -95,6 +95,7 @@
     "url-loader": "^0.5.7",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.15.1",
-    "webpack-validator": "^2.2.7"
+    "webpack-validator": "^2.2.7",
+    "webpack-lighthouse-plugin":"^1.0.4"
   }
 }

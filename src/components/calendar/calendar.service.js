@@ -21,12 +21,18 @@ function calendarService() {
   };
   const separator = '/';
 
+  /**
+   * @description: Returns selected Date from calendar.
+   */
   function getselectedDate() {
 
     return calendarModel.day + separator + calendarModel.month + separator + calendarModel.year;
 
   }
 
+  /**
+   * @description: Reset the object properties.
+   */
   function clearRedeliveryDate() {
 
     calendarModel.day = '';
@@ -36,12 +42,19 @@ function calendarService() {
 
   }
 
+  /**
+   * @description: Return surcharge for selected Date.
+   */
   function getSurcharge() {
 
     return calendarModel.surcharge;
 
   }
 
+  /**
+   * @description: Set the options to dateOptions object.
+   * @param options
+   */
   function setDateOptions(options) {
 
     dateOptions = options;
